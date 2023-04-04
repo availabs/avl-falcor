@@ -1,6 +1,6 @@
 'use strict';
-var request = require('./request');
-var buildQueryObject = require('./buildQueryObject');
+import request from './request';
+import buildQueryObject from './buildQueryObject';
 var isArray = Array.isArray;
 
 function simpleExtend(obj, obj2) {
@@ -117,5 +117,6 @@ XMLHttpSource.prototype = {
 // ES6 modules
 XMLHttpSource.XMLHttpSource = XMLHttpSource;
 XMLHttpSource['default'] = XMLHttpSource;
+export default XMLHttpSource
 // commonjs
-module.exports = XMLHttpSource;
+//module.exports = XMLHttpSource;

@@ -1,6 +1,7 @@
 import { Model } from 'falcor'
 import ModelRoot from "falcor/lib/ModelRoot"
 import HttpDataSource from './falcor-http-datasource'
+//import HttpDataSource from 'falcor-http-datasource'
 import { Promise } from "bluebird";
 
 import throttle from "lodash/throttle"

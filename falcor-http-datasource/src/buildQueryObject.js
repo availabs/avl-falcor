@@ -1,5 +1,5 @@
 'use strict';
-module.exports = function buildQueryObject(url, method, queryData) {
+function buildQueryObject(url, method, queryData) {
   var qData = [];
   var keys;
   var data = {url: url};
@@ -25,3 +25,5 @@ module.exports = function buildQueryObject(url, method, queryData) {
 
   return data;
 };
+
+export default buildQueryObject

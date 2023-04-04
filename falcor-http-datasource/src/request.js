@@ -1,6 +1,6 @@
 'use strict';
-var getXMLHttpRequest = require('./getXMLHttpRequest');
-var getCORSRequest = require('./getCORSRequest');
+import  getXMLHttpRequest from './getXMLHttpRequest';
+import  getCORSRequest from './getCORSRequest';
 var hasOwnProp = Object.prototype.hasOwnProperty;
 
 var noop = function() {};
@@ -219,4 +219,4 @@ function onXhrError(observer, xhr, status, e) {
   _handleXhrError(observer, status || xhr.statusText || 'request error', e);
 }
 
-module.exports = request;
+export default request;
