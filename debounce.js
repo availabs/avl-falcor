@@ -128,4 +128,4 @@ function debounce(func, wait, options) {
   return debounced;
 }
 
-export default debounced;
+export default debounce;
