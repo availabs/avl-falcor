@@ -1,6 +1,6 @@
 import { Model } from 'falcor'
 import ModelRoot from "falcor/lib/ModelRoot"
-import HttpDataSource from './falcor-http-datasource'
+import HttpDataSource from './falcor-http-datasource/src/XMLHttpSource'
 //import HttpDataSource from 'falcor-http-datasource'
 
 import throttle from "lodash/throttle"
