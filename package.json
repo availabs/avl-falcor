@@ -1,0 +1,39 @@
+{
+  "name": "@availabs/avl-falcor",
+  "version": "0.0.1",
+  "description": "Falcor client with react hooks and utility functions",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "node test.js",
+    "build": "npx eslint src && babel src -d dist",
+    "publish-it": "npm run build && npm publish --access public",
+    "watch": "nodemon --exec npm run build"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "dist/*",
+      ".git"
+    ],
+    "ext": "js, jsx"
+  },
+  "author": "AVAIL",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.24.1",
+    "@babel/core": "^7.24.4",
+    "@babel/preset-env": "^7.24.4",
+    "@babel/preset-react": "^7.24.1",
+    "@eslint/js": "^9.0.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.1",
+    "globals": "^15.0.0",
+    "typescript-eslint": "^7.7.0"
+  },
+  "dependencies": {
+    "falcor": "^2.3.2",
+    "lodash": "4.x",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "xhr2": "^0.2.1"
+  }
+}

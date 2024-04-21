@@ -44,8 +44,8 @@ XMLHttpSource.prototype = {
     });
     var config = simpleExtend(queryObject, this._config);
     // pass context for onBeforeRequest callback
-    var context = this;
-    return request(method, config, context);
+    // var context = ;
+    return request(method, config, this);
   },
 
   /**
@@ -71,8 +71,8 @@ XMLHttpSource.prototype = {
       }, this._config);
     }
     // pass context for onBeforeRequest callback
-    var context = this;
-    return request(method, config, context);
+    // var context = this;
+    return request(method, config, this);
 
   },
 
@@ -110,8 +110,8 @@ XMLHttpSource.prototype = {
       }, this._config);
     }
     // pass context for onBeforeRequest callback
-    var context = this;
-    return request(method, config, context);
+    // var context = this;
+    return request(method, config, this);
   }
 };
 // ES6 modules

@@ -2,9 +2,37 @@ import { Model } from 'falcor'
 import ModelRoot from "falcor/lib/ModelRoot"
 import HttpDataSource from './falcor-http-datasource'
 //import HttpDataSource from 'falcor-http-datasource'
-import { Promise } from "bluebird";
 
 import throttle from "lodash/throttle"
+
+export function PromiseMap (iterable, mapper, options = {}) {
+    let concurrency = options.concurrency || Infinity
+
+    let index = 0
+    const results = []
+    const pending = []
+    const iterator = iterable[Symbol.iterator]()
+
+    while (concurrency-- > 0) {
+        const thread = wrappedMapper()
+        if (thread) pending.push(thread)
+        else break
+    }
+
+    return Promise.all(pending).then(() => results)
+
+    function wrappedMapper () {
+        const next = iterator.next()
+        if (next.done) return null
+        const i = index++
+        const mapped = mapper(next.value, i)
+        return Promise.resolve(mapped).then(resolved => {
+            results[i] = resolved
+            return wrappedMapper()
+        })
+    }
+}
+
 
 class CustomSource extends HttpDataSource {
  onBeforeRequest (config) {
@@ -70,8 +98,8 @@ const falcorChunker = (requests, options = {}) => {
   //         throttledCB(++progress, total);
   //       });
   //   }, Promise.resolve());
-  return Promise
-    .map(chunks, c =>
+  
+  return PromiseMap(chunks, c =>
        falcor.get(c)
          .then(() => {
           throttledCB(++progress, total);
