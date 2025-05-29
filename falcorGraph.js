@@ -1,10 +1,11 @@
-import { Model } from 'falcor'
+import falcorLib from 'falcor'
 import ModelRoot from "falcor/lib/ModelRoot"
 import HttpDataSource from './falcor-http-datasource'
 //import HttpDataSource from 'falcor-http-datasource'
 //import { Promise } from "bluebird";
 
-import throttle from "lodash/throttle"
+import {throttle} from "lodash-es"
+const { Model } = falcorLib
 
 Promise.map = function (iterable, mapper, options = {}) {
   let concurrency = options.concurrency || Infinity
@@ -37,12 +38,12 @@ Promise.map = function (iterable, mapper, options = {}) {
 
 class CustomSource extends HttpDataSource {
  onBeforeRequest (config) {
-   if (window && window.localStorage) {
-     const userToken = window.localStorage.getItem('userToken');
-     if (userToken) {
-       config.headers['Authorization'] = userToken;
-     }
-   }
+   // if (localStorage) {
+   //   const userToken = localStorage.getItem('userToken');
+   //   if (userToken) {
+   //     config.headers['Authorization'] = userToken;
+   //   }
+   // }
  }
 }
 
