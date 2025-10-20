@@ -38,12 +38,12 @@ Promise.map = function (iterable, mapper, options = {}) {
 
 class CustomSource extends HttpDataSource {
  onBeforeRequest (config) {
-   // if (localStorage) {
-   //   const userToken = localStorage.getItem('userToken');
-   //   if (userToken) {
-   //     config.headers['Authorization'] = userToken;
-   //   }
-   // }
+   if (localStorage) {
+     const userToken = localStorage.getItem('userToken');
+     if (userToken) {
+       config.headers['Authorization'] = userToken;
+     }
+   }
  }
 }
 
