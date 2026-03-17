@@ -1,9 +1,14 @@
-import { Model } from 'falcor'
+import falcorLib from 'falcor'
 import ModelRoot from "falcor/lib/ModelRoot"
 import HttpDataSource from './falcor-http-datasource/src/XMLHttpSource'
 //import HttpDataSource from 'falcor-http-datasource'
 
+<<<<<<< HEAD:src/falcorGraph.js
 import throttle from "lodash.throttle"
+=======
+import {throttle} from "lodash-es"
+const { Model } = falcorLib
+>>>>>>> 5188b030ce4463e9ba3c2da0f64d16bf71df5b29:falcorGraph.js
 
 export function PromiseMap (iterable, mapper, options = {}) {
     let concurrency = options.concurrency || Infinity
