@@ -12,7 +12,7 @@ function debounce(func, wait, options) {
     maxing = false,
     trailing = true;
   if (typeof func !== 'function') {
-    throw new TypeError(FUNC_ERROR_TEXT);
+    throw new TypeError('FUNCTION ERROR TEXT LOL');
   }
   wait = Number(wait) || 0;
   if (typeof options === 'object') {

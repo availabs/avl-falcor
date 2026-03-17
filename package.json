@@ -1,12 +1,12 @@
 {
   "name": "@availabs/avl-falcor",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "Falcor client with react hooks and utility functions",
   "main": "dist/index.js",
   "scripts": {
     "test": "node test.js",
     "build": "npx eslint src && babel src -d dist",
-    "publish-it": "npm run build && npm publish --access public",
+    "publish": "npm run build && npm publish --access public",
     "watch": "nodemon --exec npm run build"
   },
   "nodemonConfig": {
@@ -31,9 +31,8 @@
   },
   "dependencies": {
     "falcor": "^2.3.2",
-    "lodash": "4.x",
+    "lodash.throttle": "^4.1.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "xhr2": "^0.2.1"
   }
 }

@@ -8,8 +8,8 @@ exports.PromiseMap = PromiseMap;
 exports.falcorGraph = exports.falcor = void 0;
 var _falcor = require("falcor");
 var _ModelRoot2 = _interopRequireDefault(require("falcor/lib/ModelRoot"));
-var _falcorHttpDatasource = _interopRequireDefault(require("./falcor-http-datasource"));
-var _throttle = _interopRequireDefault(require("lodash/throttle"));
+var _XMLHttpSource = _interopRequireDefault(require("./falcor-http-datasource/src/XMLHttpSource"));
+var _lodash = _interopRequireDefault(require("lodash.throttle"));
 var _excluded = ["falcor", "onProgress", "concurrency"],
   _excluded2 = ["index", "placeholder"];
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -76,15 +76,17 @@ var CustomSource = /*#__PURE__*/function (_HttpDataSource) {
   return _createClass(CustomSource, [{
     key: "onBeforeRequest",
     value: function onBeforeRequest(config) {
-      // if (window && window.localStorage) {
-      //   const userToken = window.localStorage.getItem('userToken');
-      //   if (userToken) {
-      //     config.headers['Authorization'] = userToken;
-      //   }
-      // }
+      var _window;
+      if (window && (_window = window) !== null && _window !== void 0 && _window.localStorage) {
+        var _window$localStorage;
+        var userToken = (_window$localStorage = window.localStorage) === null || _window$localStorage === void 0 ? void 0 : _window$localStorage.getItem('userToken');
+        if (userToken) {
+          config.headers['Authorization'] = userToken;
+        }
+      }
     }
   }]);
-}(_falcorHttpDatasource["default"]);
+}(_XMLHttpSource["default"]);
 function cacheFromStorage() {
   var falcorCache = {};
   // if (localStorage && localStorage.getItem('falcorCache')) {
@@ -122,7 +124,7 @@ var falcorChunker = function falcorChunker(requests) {
     _options$concurrency = options.concurrency,
     concurrency = _options$concurrency === void 0 ? 5 : _options$concurrency,
     rest = _objectWithoutProperties(options, _excluded);
-  var throttledCB = (0, _throttle["default"])(onProgress, 50);
+  var throttledCB = (0, _lodash["default"])(onProgress, 50);
   var progress = 0,
     total = 0;
   var chunks = requests.reduce(function (accum, _ref) {

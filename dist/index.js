@@ -11,7 +11,7 @@ var _exportNames = {
 };
 exports.useFalcor = exports.avlFalcor = exports.FalcorProvider = exports.FalcorConsumer = void 0;
 var _react = _interopRequireDefault(require("react"));
-var _debounce = _interopRequireDefault(require("lodash/debounce"));
+var _debounce = _interopRequireDefault(require("./debounce"));
 var _falcorGraph = require("./falcorGraph");
 Object.keys(_falcorGraph).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;

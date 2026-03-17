@@ -3,7 +3,7 @@ import ModelRoot from "falcor/lib/ModelRoot"
 import HttpDataSource from './falcor-http-datasource/src/XMLHttpSource'
 //import HttpDataSource from 'falcor-http-datasource'
 
-import throttle from "lodash/throttle"
+import throttle from "lodash.throttle"
 
 export function PromiseMap (iterable, mapper, options = {}) {
     let concurrency = options.concurrency || Infinity
@@ -36,12 +36,12 @@ export function PromiseMap (iterable, mapper, options = {}) {
 
 class CustomSource extends HttpDataSource {
  onBeforeRequest (config) {
-   // if (window && window.localStorage) {
-   //   const userToken = window.localStorage.getItem('userToken');
-   //   if (userToken) {
-   //     config.headers['Authorization'] = userToken;
-   //   }
-   // }
+   if (window && window?.localStorage) {
+     const userToken = window.localStorage?.getItem('userToken');
+     if (userToken) {
+       config.headers['Authorization'] = userToken;
+     }
+   }
  }
 }
 
@@ -98,7 +98,7 @@ const falcorChunker = (requests, options = {}) => {
   //         throttledCB(++progress, total);
   //       });
   //   }, Promise.resolve());
-  
+
   return PromiseMap(chunks, c =>
        falcor.get(c)
          .then(() => {
