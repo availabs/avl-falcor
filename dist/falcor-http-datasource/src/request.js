@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports["default"] = void 0;
 var _getXMLHttpRequest = _interopRequireDefault(require("./getXMLHttpRequest"));
 var _getCORSRequest = _interopRequireDefault(require("./getCORSRequest"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 var hasOwnProp = Object.prototype.hasOwnProperty;
 var noop = function noop() {};
 function Observable() {}

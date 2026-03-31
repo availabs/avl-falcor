@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports["default"] = void 0;
 var _request = _interopRequireDefault(require("./request"));
 var _buildQueryObject = _interopRequireDefault(require("./buildQueryObject"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 var isArray = Array.isArray;
 function simpleExtend(obj, obj2) {
   var prop;
